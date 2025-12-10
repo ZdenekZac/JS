@@ -1,5 +1,7 @@
 'use strict';
 
+// -------------------- 97. SCOPING IN PRACTICE ------------
+
 function calcAge(birthYear){
 	const age = 2025 - birthYear;
 
@@ -23,10 +25,18 @@ function calcAge(birthYear){
 		console.log(output);	
 	}
 	printAge()
-
-	
 	return age;
 }
-
 const firstName = "jonas";
 console.log( calcAge(1988))
+
+// ------------- 98.VARIABLE ENVIRONMENT: HOISTING AND THE TDZ ------------
+
+const arr = [ 2, 3, 4, 5];
+const sum = arr.reduce(
+  (result) => result
+);
+
+console.log(sum);
+
+
