@@ -60,7 +60,7 @@ console.log(calcAge(1988));
 //console.log(this);
 
 const calcAge2 = function (birthYear) {
-  //console.log(2037 - birthYear);
+  //console.log(2030 - birthYear);
   //console.log(this);
 };
 calcAge2(1980);
@@ -74,7 +74,7 @@ calcAgeArrow(1980);
 const jonas = {
   year: 1991,
   calcAge: function () {
-    //console.log(this);
+    console.log(this);
     // console.log(2037 - this.year);
   },
 };
