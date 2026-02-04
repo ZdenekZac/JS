@@ -45,3 +45,9 @@ const restaurant = {
     },
   },
 };
+
+// ----- 108 -- DESTRUCTURING ARRAYS
+
+const arr = [2, 3, 4];
+const [a, b, c] = arr;
+console.log(a, b, c);

@@ -118,3 +118,63 @@
 // addArow(2, 3, 4);
 
 // ------- 103. Memory Management: Primitives vs. Objects ---------
+
+//PRIMITIVES: NUMBER, STRING, BOOLEAN, UNDEFINED, NULL, SYMBOL, BIGINT
+//OBJECTS: OBJECT LITERALS, ARRAYS, FUNCTIONS, MANY MORE...
+//OBJECTS ARE STORED IN THE HEAP
+//PRIMITIVES ARE STORED IN THE CALL STACK, IN GLOBAL EXECUTION CONTEXT ETC.
+//REFERENCES TO OBJECTS AND FUNCTIONS ARE STORED IN CALL STACK, THEY POINT TO THE HEAP
+// const obj={city: "Prague"} // const newObj = obj // newObj.city = "Dublin" ----->
+//-----> THIS WILL MUTATE THE ORIGINAL OBJECT, BECAUSE OF REFERENCING
+
+//---------- 104. Object referencing in practice (shalow vs. deep copies)
+
+const jessica1 = {
+  firstName: 'jessica',
+  lastName: 'williams',
+  age: 27,
+};
+
+function marryPerson(originalperson, newLastName) {
+  originalperson.lastName = newLastName;
+  return originalperson;
+}
+
+const marriedJessica = marryPerson(jessica1, 'OBrian');
+
+//const marriedJessica = jessica;
+//marriedJessica.lastName = 'Davis';
+
+//console.log('before', jessica1);
+//console.log('after', marriedJessica);
+
+// CREATE NEW OBJECT WITHOUT MUTATING
+
+const jessica2 = {
+  firstName: 'jessica',
+  lastName: 'williams',
+  age: 27,
+  family: ['alice', 'bob'],
+};
+
+// !! NESTED OBJECTS KEEPS ONLY REFERENCE TOO !!!
+
+// SAHALLOW COPY, JUST ONE LEVEL
+const jessicaCopy = { ...jessica2 };
+jessicaCopy.lastName = 'Davis';
+
+//console.log(jessica2, jessicaCopy);
+// THATS WHY THIS MUTATES jessica2.family AS WELL !!!
+//jessicaCopy.family.push('mary');
+//jessicaCopy.family.push('john');
+
+//console.log(jessica2);
+//console.log(jessicaCopy);
+
+// DEEP CLONE,OR DEEP COPY
+const jessicaClone = structuredClone(jessica2);
+jessicaClone.family.push('mary');
+jessicaClone.family.push('john');
+
+console.log('original: ', jessica2);
+console.log('clone: ', jessicaClone);
